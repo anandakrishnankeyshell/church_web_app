@@ -1,0 +1,10 @@
+.grid-background {
+    height: auto;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 5px 5px; /* Adjust the size of each grid cell */
+  }
+  .bgclor{
+    background: radial-gradient(circle, rgb(255, 163, 87) 0%, rgb(183, 120, 13) 100%); /* Set the background color */
+    height: auto;
+  }
