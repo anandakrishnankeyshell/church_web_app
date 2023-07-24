@@ -53,6 +53,7 @@ function App() {
           <Route path='people_details' element={<PeoplesData/>}/>
           <Route path='contact' element={<Contact/>}/>
           <Route path='donation' element={<Payment/>}/>
+
           
         </Routes>
       </BrowserRouter>
