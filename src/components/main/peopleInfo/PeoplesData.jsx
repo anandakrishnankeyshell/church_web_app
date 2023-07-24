@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const PeoplesData = () => {
 
-  const [ItemDatas, setItemData] = useState([])
+  // const [ItemDatas, setItemData] = useState([])
   const [popledata,setpeopledata]=useState([])
 
   const [currentPage, setcurrentPage] = useState(1)
@@ -15,6 +15,8 @@ const PeoplesData = () => {
 
   // console.log(serchData);
   console.log(popledata);
+
+  
 
   
   const lastPage = MOCK_DATA.length / itemperPage;
@@ -28,20 +30,27 @@ const PeoplesData = () => {
   const nextPagePost = curentPagePost - itemperPage
 
   const getData = async()=>{
-    const result=await axios.get('http://localhost:5000/getpeopledata')
+    const result=await axios.get('http://localhost:5000/people_details')
 
-    setpeopledata(result)
+    setpeopledata(result.data.users)
+
   }
+
+  let onHandleChange=(e)=>{
+    setitemperPage(e.target.value)
+  }
+
+  
+
+
 
   useEffect(() => {
 
-
     getData()
-
-    setItemData(MOCK_DATA.slice(nextPagePost, curentPagePost))
-  }, [nextPagePost, curentPagePost]
+  //   setItemData(MOCK_DATA.slice(nextPagePost, curentPagePost))
+  // }, [nextPagePost, curentPagePost]
   
-  )
+},[])
 
 
 
@@ -81,7 +90,7 @@ const PeoplesData = () => {
                   <th className='px-20'>Mobile</th>
                 </tr>
               </thead>
-              {ItemDatas.filter((item)=>{
+              {[...popledata.slice(nextPagePost, curentPagePost)].filter((item)=>{
                return serchData.toLowerCase()===''?item:
                 item.first_name.toLowerCase().includes(serchData) 
                 || item.email.toLowerCase().includes(serchData)
@@ -103,7 +112,7 @@ const PeoplesData = () => {
           <div className='flex justify-center items-center space-x-4 pb-20'>
 
                 <p className='px-3 py-2 bg-slate-400 rounded-md text-white'>select nuber to Display list</p>
-            <select value={itemperPage} onChange={(e)=>setitemperPage(e.target.value)}
+            <select value={itemperPage} onChange={onHandleChange}
             className='block px-3 py-2 leading-tight bg-white border border-gray-300 rounded-md 
             shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-500 
             focus:ring-opacity-50'>

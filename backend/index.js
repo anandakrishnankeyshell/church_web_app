@@ -1,11 +1,18 @@
+const dotenv = require('dotenv')
 const mongoose = require("mongoose")
 const express = require("express");
 const cors = require("cors");
 const router = require("./routes/PeopleData");
 
-const DB= 'mongodb+srv://akks:12345qwerty@cluster0.xqyjvcp.mongodb.net/?retryWrites=true&w=majority'
+dotenv.config({path:'./config.env'})
+
+const DB = process.env.DB
+
+const port =process.env.PORT 
 
 mongoose.connect(DB).then(()=>{
+    app.listen(port, () => console.log(`server is running ${port}`));
+
     console.log('DB connection succes');
 }).catch((err)=>{ console.log('DB connection failed');})
 
@@ -17,42 +24,6 @@ app.use(cors({origin:'http://localhost:3000'}));
 
 app.use('/', router);
 
-//get all people details
-
-const peopleData=mongoose.model('churchdata',{
-    
-    id:Number,
-    ward:Number,
-    first_name:String,
-    last_name:String,
-    email:String,
-    phone:String
-    })
-
-const allpeopleData = () => {
-    return peopleData.find().then((result) => {
-      if (result) {
-        return {
-          statusCode: 200,
-          users: result,
-        };
-      } else {
-        return {
-          statusCode: 404,
-          message: "data not available",
-        };
-      }
-    });
-  };
-
-  app.get('/getpeopledata',(req,res)=>{
-    allpeopleData().then(result=>{
-        res.status(result.statusCode).json(result)
-    })
+app.get('/',(req,res)=>{
+    res.send('hello user')
 })
-
-const port = 5000;
-
-app.listen(port, () => console.log(`server is running ${port}`));
-
-
