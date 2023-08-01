@@ -12,6 +12,8 @@ import Navigationbar from './components/Navigationbar';
 import MoreAbout from './components/main/moreAbout/MoreAbout';
 import Contact from './components/main/contactsection/Contact';
 import Payment from './components/main/payment/Payment';
+import Login from './components/main/adminsection/Login';
+import LoginHome from './components/main/adminsection/LoginHome';
 
 
 
@@ -50,9 +52,15 @@ function App() {
 
           <Route path='/' element={<Home/>}/>
           <Route path='more_about_us' element={<MoreAbout/>} />
-          <Route path='people_details' element={<PeoplesData/>}/>
           <Route path='contact' element={<Contact/>}/>
           <Route path='donation' element={<Payment/>}/>
+          <Route path='login' element={<Login/>}/>
+          <Route path='login/admin' element={<LoginHome/>}>
+
+             <Route path='people_details' element={<PeoplesData/>}/>
+
+          </Route>
+
 
           
         </Routes>

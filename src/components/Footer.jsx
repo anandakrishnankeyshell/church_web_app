@@ -23,18 +23,36 @@ const Footer = () => {
             >
             <FontAwesomeIcon icon={faAngleUp} />
             </button>
-          </p>
+          </p>  
         </div>
-
+        <div className='flex justify-end'>
+        <div>
+              <a   href='donation'
+                    style={{fontFamily:'Quicksand, serif',fontWeight:'bold'}}
+                     className="block px-4 py-1  text-gray-100 bg-slate-700
+                      hover:bg-gray-100 hover:text-gray-900 rounded-lg duration-500 ease-in-out
+                       mx-10">
+                                  Donation for church
+                    </a>
+              </div>
+          <a href='login'
+          style={{fontFamily:'Quicksand, serif',fontWeight:'bold'}}
+                       className="flex  px-4 py-1  text-gray-100 bg-slate-700
+                        hover:bg-gray-100 hover:text-gray-900 rounded-lg duration-500 ease-in-out
+                        mx-10"  >
+             Admin
+            </a>
+        </div>
         <div>
           <p 
-           className='p-3 text-center'>
+           className='p-3 pt-0 text-center'>
             <a href='https://keyshell.net/' rel="noreferrer"
              target='_blank'
              style={{fontFamily:'Quicksand, serif'}}>
               <FontAwesomeIcon icon={faCopyright}/>
                KeyShell</a>
           </p>
+          
         </div>
     </section>
     </>

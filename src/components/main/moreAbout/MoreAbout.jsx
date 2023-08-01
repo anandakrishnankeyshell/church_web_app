@@ -24,27 +24,7 @@ const MoreAbout = () => {
                 </div>
             </div>
           <hr className=' p-px bg-orange-600 m-5'/>
-          <div className='flex justify-center'>
-              <div>
-                    <a href='people_details'
-                    style={{fontFamily:'Quicksand, serif',fontWeight:'bold'}}
-                     className="block px-4 py-2  text-gray-100 bg-slate-700
-                      hover:bg-gray-100 hover:text-gray-900 rounded-lg duration-500 ease-in-out
-                      m-5 mx-10"  >
-                                  Our Peoples
-                    </a>
-                    
-              </div>
-              <div>
-              <a   href='donation'
-                    style={{fontFamily:'Quicksand, serif',fontWeight:'bold'}}
-                     className="block px-4 py-2  text-gray-100 bg-slate-700
-                      hover:bg-gray-100 hover:text-gray-900 rounded-lg duration-500 ease-in-out
-                      m-5 mx-10">
-                                  Donations
-                    </a>
-              </div>
-          </div>
+          
 
         </div>
        
